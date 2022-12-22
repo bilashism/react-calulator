@@ -32,7 +32,17 @@ const calculatorReducer = (state, { type, payload }) => {
       return {};
     // delete a digit
     case calculatorActions?.delete:
+      if (state?.overwrite) {
+        return {
+          ...state,
+          overwrite: false,
+          currentOperand: null
+        };
+      }
       if (!state?.currentOperand) return state;
+      if (state?.currentOperand.length === 1) {
+        return { ...state, currentOperand: null };
+      }
       return {
         ...state,
         currentOperand: `${state?.currentOperand?.slice(0, -1)}`
