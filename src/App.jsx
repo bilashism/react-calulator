@@ -1,8 +1,7 @@
 import { useReducer } from "react";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
-
-const calculatorReducer = (state, action) => {};
+import { calculatorReducer } from "./reducers/calculatorReducer";
 
 function App() {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
