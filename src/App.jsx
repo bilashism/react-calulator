@@ -3,8 +3,8 @@ import "./App.css";
 
 function App() {
   return (
-    <main className="py-8">
-      <div className="container mx-auto px-4 grid min-h-screen place-items-center">
+    <main className="">
+      <div className="container mx-auto p-4 grid min-h-screen place-items-center">
         <div className="bg-slate-400 flex flex-col gap-4 text-2xl p-8">
           <output className="h-28 border"></output>
           <div className="flex flex-wrap gap-4">
