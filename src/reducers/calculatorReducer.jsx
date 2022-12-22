@@ -1,3 +1,5 @@
+import { integerFormatter } from "../utilities/utilities";
+
 const calculatorActions = {
   addDigit: "add-digit",
   clear: "clear",
@@ -120,4 +122,17 @@ const evaluate = ({ currentOperand, previousOperand, operation }) => {
   }
   return computed.toString();
 };
-export { calculatorReducer, calculatorActions };
+
+/**
+ * It takes a string, splits it into an array of two strings, and then formats the first string and
+ * returns the first string concatenated with the second string.
+ * @returns the formatted integer and decimal.
+ */
+const formatOperand = operand => {
+  if (!operand) return;
+  const [integer, decimal] = operand.split(".");
+  if (!decimal) return integerFormatter.format(integer);
+  return `${integerFormatter.format(integer)}.${decimal}`;
+};
+
+export { calculatorReducer, calculatorActions, formatOperand };

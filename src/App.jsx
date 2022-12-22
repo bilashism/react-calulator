@@ -5,7 +5,8 @@ import DigitButton from "./components/DigitButton";
 import OperationButton from "./components/OperationButton";
 import {
   calculatorActions,
-  calculatorReducer
+  calculatorReducer,
+  formatOperand
 } from "./reducers/calculatorReducer";
 
 function App() {
@@ -20,9 +21,9 @@ function App() {
         <div className="bg-slate-400 flex flex-col gap-4 text-2xl p-8">
           <output className="h-28 border flex flex-col items-end gap-2">
             <p className="">
-              {previousOperand} {operation}
+              {formatOperand(previousOperand)} {operation}
             </p>
-            <p className="">{currentOperand}</p>
+            <p className="">{formatOperand(currentOperand)}</p>
           </output>
           <div className="flex flex-wrap gap-4">
             <DigitButton dispatch={dispatch} ariaLabel="zero" digit="0" />
