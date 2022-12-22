@@ -30,6 +30,53 @@ const calculatorReducer = (state, { type, payload }) => {
         ...state,
         currentOperand: `${state?.currentOperand?.slice(0, -1)}`
       };
+
+    // operational calculations
+    case calculatorActions?.chooseOperation:
+      if (state?.currentOperand == null && state?.previousOperand == null) {
+        return state;
+      }
+      if (state?.currentOperand == null) {
+        return {
+          ...state,
+          operation: payload.operation
+        };
+      }
+      if (state?.previousOperand == null) {
+        return {
+          ...state,
+          operation: payload.operation,
+          previousOperand: state.currentOperand,
+          currentOperand: null
+        };
+      }
+      return {
+        ...state,
+        operation: payload.operation,
+        previousOperand: evaluate(state),
+        currentOperand: null
+      };
   }
+};
+const evaluate = ({ currentOperand, previousOperand, operation }) => {
+  const prev = Number(previousOperand);
+  const current = Number(currentOperand);
+  let computed = "";
+  if (isNaN(prev) || isNaN(current)) return computed;
+  switch (operation) {
+    case "+":
+      computed = prev + current;
+      break;
+    case "-":
+      computed = prev - current;
+      break;
+    case "/":
+      computed = prev / current;
+      break;
+    case "*":
+      computed = prev * current;
+      break;
+  }
+  return computed.toString();
 };
 export { calculatorReducer, calculatorActions };
