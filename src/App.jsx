@@ -19,7 +19,7 @@ function App() {
     <main className="">
       <div className="container mx-auto p-4 grid min-h-screen place-items-center">
         <div className="bg-slate-400 flex flex-col gap-4 text-2xl p-8">
-          <output className="h-28 border flex flex-col items-end gap-2">
+          <output className="h-28 border flex flex-col items-end gap-2 p-2">
             <p className="">
               {formatOperand(previousOperand)} {operation}
             </p>
