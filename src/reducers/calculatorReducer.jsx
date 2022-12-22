@@ -23,6 +23,12 @@ const calculatorReducer = (state, { type, payload }) => {
     // clearing the calculator
     case calculatorActions?.clear:
       return {};
+    // delete a digit
+    case calculatorActions?.delete:
+      return {
+        ...state,
+        currentOperand: `${state?.currentOperand.slice(0, -1)}`
+      };
   }
 };
 export { calculatorReducer, calculatorActions };

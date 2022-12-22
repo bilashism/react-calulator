@@ -74,7 +74,8 @@ function App() {
             <button
               type="button"
               className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="delete">
+              aria-label="delete"
+              onClick={() => dispatch({ type: calculatorActions.delete })}>
               Del
             </button>
           </div>
