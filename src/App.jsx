@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
 import DigitButton from "./components/DigitButton";
+import OperationButton from "./components/OperationButton";
 import { calculatorReducer } from "./reducers/calculatorReducer";
 
 function App() {
@@ -34,30 +35,26 @@ function App() {
             <DigitButton dispatch={dispatch} ariaLabel="point" digit="." />
           </div>
           <div className="flex flex-wrap gap-4">
-            <button
-              type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="addition">
-              +
-            </button>
-            <button
-              type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="subtraction">
-              -
-            </button>
-            <button
-              type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="division">
-              /
-            </button>
-            <button
-              type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="multiply">
-              *
-            </button>
+            <OperationButton
+              dispatch={dispatch}
+              ariaLabel="addition"
+              operation="+"
+            />
+            <OperationButton
+              dispatch={dispatch}
+              ariaLabel="subtraction"
+              operation="-"
+            />
+            <OperationButton
+              dispatch={dispatch}
+              ariaLabel="division"
+              operation="/"
+            />
+            <OperationButton
+              dispatch={dispatch}
+              ariaLabel="multiply"
+              operation="*"
+            />
             <button
               type="button"
               className="flex items-center justify-center aspect-square p-2 bg-stone-200"
