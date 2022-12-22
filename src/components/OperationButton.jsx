@@ -11,7 +11,7 @@ const OperationButton = ({ dispatch, operation, ariaLabel }) => {
   return (
     <button
       type="button"
-      className="flex items-center justify-center aspect-square p-2 bg-stone-200"
+      className="flex items-center justify-center aspect-square p-2 bg-stone-200 active:ring-4 focus:ring-2"
       aria-label={ariaLabel}
       onClick={() =>
         dispatch({

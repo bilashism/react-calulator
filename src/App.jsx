@@ -61,21 +61,21 @@ function App() {
             />
             <button
               type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
+              className="flex items-center justify-center aspect-square p-2 bg-stone-200 active:ring-4 focus:ring-2"
               aria-label="evaluate"
               onClick={() => dispatch({ type: calculatorActions.evaluate })}>
               =
             </button>
             <button
               type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
+              className="flex items-center justify-center aspect-square p-2 bg-stone-200 active:ring-4 focus:ring-2"
               aria-label="clear"
               onClick={() => dispatch({ type: calculatorActions.clear })}>
               AC
             </button>
             <button
               type="button"
-              className="flex items-center justify-center aspect-square p-2 bg-stone-200"
+              className="flex items-center justify-center aspect-square p-2 bg-stone-200 active:ring-4 focus:ring-2"
               aria-label="delete"
               onClick={() => dispatch({ type: calculatorActions.delete })}>
               Del
