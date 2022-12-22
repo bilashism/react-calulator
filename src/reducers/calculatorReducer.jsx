@@ -10,6 +10,13 @@ const calculatorReducer = (state, { type, payload }) => {
   switch (type) {
     // adding a digit
     case calculatorActions?.addDigit:
+      if (state.overwrite) {
+        return {
+          ...state,
+          currentOperand: payload.digit,
+          overwrite: false
+        };
+      }
       if (state.currentOperand === "0" && payload.digit === "0") {
         return state;
       }
@@ -55,6 +62,22 @@ const calculatorReducer = (state, { type, payload }) => {
         operation: payload.operation,
         previousOperand: evaluate(state),
         currentOperand: null
+      };
+    // evaluating the result
+    case calculatorActions?.evaluate:
+      if (
+        state?.previousOperand == null ||
+        state?.currentOperand == null ||
+        state?.operation == null
+      ) {
+        return state;
+      }
+      return {
+        ...state,
+        overwrite: true,
+        previousOperand: null,
+        operation: null,
+        currentOperand: evaluate(state)
       };
   }
 };

@@ -61,7 +61,8 @@ function App() {
             <button
               type="button"
               className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="evaluate">
+              aria-label="evaluate"
+              onClick={() => dispatch({ type: calculatorActions.evaluate })}>
               =
             </button>
             <button
