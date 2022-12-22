@@ -1,12 +1,25 @@
+import { useReducer } from "react";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
 
+const calculatorReducer = (state, action) => {};
+
 function App() {
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
+    calculatorReducer,
+    {}
+  );
+
   return (
     <main className="">
       <div className="container mx-auto p-4 grid min-h-screen place-items-center">
         <div className="bg-slate-400 flex flex-col gap-4 text-2xl p-8">
-          <output className="h-28 border"></output>
+          <output className="h-28 border">
+            <p className="">
+              {previousOperand} {operation}
+            </p>
+            <p className="">{currentOperand}</p>
+          </output>
           <div className="flex flex-wrap gap-4">
             <button
               type="button"
