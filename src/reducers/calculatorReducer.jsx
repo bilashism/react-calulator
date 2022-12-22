@@ -6,6 +6,10 @@ const calculatorActions = {
   evaluate: "evaluate"
 };
 
+/**
+ * The function takes in a state and an action, and returns a new state based on the action.
+ * @returns The state of the calculator.
+ */
 const calculatorReducer = (state, { type, payload }) => {
   switch (type) {
     // adding a digit
@@ -91,6 +95,10 @@ const calculatorReducer = (state, { type, payload }) => {
       };
   }
 };
+/**
+ * It takes an object with three properties, and returns a string.
+ * @returns The computed value is being returned.
+ */
 const evaluate = ({ currentOperand, previousOperand, operation }) => {
   const prev = Number(previousOperand);
   const current = Number(currentOperand);
