@@ -3,7 +3,10 @@ import { Toaster } from "react-hot-toast";
 import "./App.css";
 import DigitButton from "./components/DigitButton";
 import OperationButton from "./components/OperationButton";
-import { calculatorReducer } from "./reducers/calculatorReducer";
+import {
+  calculatorActions,
+  calculatorReducer
+} from "./reducers/calculatorReducer";
 
 function App() {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
@@ -64,7 +67,8 @@ function App() {
             <button
               type="button"
               className="flex items-center justify-center aspect-square p-2 bg-stone-200"
-              aria-label="clear">
+              aria-label="clear"
+              onClick={() => dispatch({ type: calculatorActions.clear })}>
               AC
             </button>
             <button
