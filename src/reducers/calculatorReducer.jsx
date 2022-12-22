@@ -11,9 +11,8 @@ const calculatorReducer = (state, { type, payload }) => {
     case calculatorActions?.addDigit:
       return {
         ...state,
-        currentOperand: `${currentOperand || ""}${payload?.digit}`
+        currentOperand: `${state?.currentOperand || ""}${payload?.digit}`
       };
   }
 };
-
 export { calculatorReducer, calculatorActions };
